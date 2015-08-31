@@ -129,7 +129,7 @@ __global__ void kernel_render(RenderParameters* paramsp, float4* inout_pixels, u
         for(i = 0; i < steps; ++i) {
             pos = pos + dir*params.stepSize/old_index;
             float3 offset = pos-min_bound;
-            float3 lookupfn = offset*lookup_scale (*0.25); // normalized lookup // Carson: adding .25 fixes the replication bug.  It seems
+            float3 lookupfn = offset*lookup_scale*(0.25); // normalized lookup // Carson: adding .25 fixes the replication bug.  It seems
             // that tex lookups have changed, should fix this earlier in the pipe.
             //float3 lookupf = {lookupfn.x*float(params.data_width), lookupfn.y*float(params.data_height), lookupfn.z*float(params.data_depth)};
             float3 lookup = {static_cast<float>(lookupfn.x*params.data_width), static_cast<float>(lookupfn.y*params.data_height), static_cast<float>(lookupfn.z*params.data_depth) };
