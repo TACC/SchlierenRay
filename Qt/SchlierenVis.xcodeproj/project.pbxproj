@@ -1,0 +1,571 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		069D05B0128AE5DC7EE31738 /* QtCore.framework in Frameworks & Libraries */ = {isa = PBXBuildFile; fileRef = 7BC2E65A5E699A5E5D834CA2 /* QtCore.framework */; };
+		08D8EC4D0C273BC5E194E43D /* QtSvg.framework in Frameworks & Libraries */ = {isa = PBXBuildFile; fileRef = 2D7FF9EBB69BCF2C19DC629B /* QtSvg.framework */; };
+		0C6D4628EE0B0D1479A20551 /* AGL.framework in Frameworks & Libraries */ = {isa = PBXBuildFile; fileRef = C6766F86E49E9C8701C8E637 /* AGL.framework */; };
+		26C2BED6C570C95F5243C556 /* moc_mainwindow.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = 336D3C48DD3B44974395C633 /* moc_mainwindow.cpp */; settings = {ATTRIBUTES = (); }; };
+		2B093CA6F071B023A473CED0 /* main.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = 118FCBAABA162BA17933C789 /* main.cpp */; settings = {ATTRIBUTES = (); }; };
+		32D4747DB6088A7E8EDC372C /* painterwidget.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = A144AF16A4A7BBBF30A36ED4 /* painterwidget.cpp */; settings = {ATTRIBUTES = (); }; };
+		450A0D11527AF164AEFE7377 /* QtOpenGL.framework in Frameworks & Libraries */ = {isa = PBXBuildFile; fileRef = C374004D45E01156F931B37D /* QtOpenGL.framework */; };
+		462C0F34BBEF2375A9469BB5 /* mainwindow.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = EA177DE95BF7D3EF58EE43F7 /* mainwindow.cpp */; settings = {ATTRIBUTES = (); }; };
+		4C6CF7747967600158C244AA /* filter.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = 6A3DFB9CC6EC3458A715B927 /* filter.cpp */; settings = {ATTRIBUTES = (); }; };
+		501667F26B3C1FF6767A7C12 /* QtGui.framework in Frameworks & Libraries */ = {isa = PBXBuildFile; fileRef = 9B36DA7E32F0304E780E7972 /* QtGui.framework */; };
+		6AFFA5CC440B7A45A7B1BFFC /* CoreAudio.framework in Frameworks & Libraries */ = {isa = PBXBuildFile; fileRef = 5047022CEBDAD3272EE3C4D2 /* CoreAudio.framework */; };
+		7D24C4AAFE054CB4F844982B /* AudioUnit.framework in Frameworks & Libraries */ = {isa = PBXBuildFile; fileRef = 5A5E07CEF4D0A51E8FE3D953 /* AudioUnit.framework */; };
+		ADDE0CE603BA5561F2ED6D05 /* glview.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = 43683289D5AF74328B217274 /* glview.cpp */; settings = {ATTRIBUTES = (); }; };
+		B588B499117C2A600028B2EA /* SchlierenVis.app in Project Copy */ = {isa = PBXBuildFile; fileRef = B588B496117C2A600028B2EA /* SchlierenVis.app */; };
+		BCEF71E1EDFB18DA77DC750B /* OpenGL.framework in Frameworks & Libraries */ = {isa = PBXBuildFile; fileRef = DA18A6831232F53228631AD1 /* OpenGL.framework */; };
+		BE29FCEBE353C8375F034751 /* AudioToolbox.framework in Frameworks & Libraries */ = {isa = PBXBuildFile; fileRef = DCDFF7D4DAE217C12A322FC8 /* AudioToolbox.framework */; };
+		C1436F343D531E04FECBC4AA /* moc_glview.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = 7CEEAFF9D73420AD772BE912 /* moc_glview.cpp */; settings = {ATTRIBUTES = (); }; };
+		C2643FEB592DBFD1429BE4E1 /* QtXml.framework in Frameworks & Libraries */ = {isa = PBXBuildFile; fileRef = 8EE92F8FA333C9E415C5B34E /* QtXml.framework */; };
+		D03B586AB1939D7132376EEE /* moc_filter.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = 5716FE872B3E81D7754D78F2 /* moc_filter.cpp */; settings = {ATTRIBUTES = (); }; };
+		DF656BFAB727B88ECDEF7CDB /* QtMultimedia.framework in Frameworks & Libraries */ = {isa = PBXBuildFile; fileRef = BA68F5FE488C7E2C852B7552 /* QtMultimedia.framework */; };
+		EEBB90AD653F0526CF2A1B9B /* moc_painterwidget.cpp in Build Sources */ = {isa = PBXBuildFile; fileRef = E7FADDE788209127C251A371 /* moc_painterwidget.cpp */; settings = {ATTRIBUTES = (); }; };
+		F9E76E570E10AF14870553A7 /* ApplicationServices.framework in Frameworks & Libraries */ = {isa = PBXBuildFile; fileRef = 27AE7A480FD6C52FCA80FECD /* ApplicationServices.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		F6069D5A5DA8AA28EDB8B3C6 /* Project Copy */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = /Users/carson/svn/SchlierenVis;
+			dstSubfolderSpec = 0;
+			files = (
+				B588B499117C2A600028B2EA /* SchlierenVis.app in Project Copy */,
+			);
+			name = "Project Copy";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		118FCBAABA162BA17933C789 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		1753CD773078CA2B28BB37C3 /* filter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = filter.h; sourceTree = "<group>"; };
+		27AE7A480FD6C52FCA80FECD /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = /System/Library/Frameworks/ApplicationServices.framework; sourceTree = "<absolute>"; };
+		2D7FF9EBB69BCF2C19DC629B /* QtSvg.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtSvg.framework; path = /Library/Frameworks/QtSvg.framework; sourceTree = "<absolute>"; };
+		336D3C48DD3B44974395C633 /* moc_mainwindow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_mainwindow.cpp; sourceTree = "<group>"; };
+		43683289D5AF74328B217274 /* glview.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = glview.cpp; sourceTree = "<group>"; };
+		5047022CEBDAD3272EE3C4D2 /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = /System/Library/Frameworks/CoreAudio.framework; sourceTree = "<absolute>"; };
+		56925EDCA7FB81CB58BC8F8E /* glview.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = glview.h; sourceTree = "<group>"; };
+		5716FE872B3E81D7754D78F2 /* moc_filter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_filter.cpp; sourceTree = "<group>"; };
+		58D571A0DB4959F8023034C4 /* painterwidget.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = painterwidget.h; sourceTree = "<group>"; };
+		5A5E07CEF4D0A51E8FE3D953 /* AudioUnit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioUnit.framework; path = /System/Library/Frameworks/AudioUnit.framework; sourceTree = "<absolute>"; };
+		6A3DFB9CC6EC3458A715B927 /* filter.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = filter.cpp; sourceTree = "<group>"; };
+		7780632D1EC9B3DC2F084A77 /* ui_filter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ui_filter.h; sourceTree = "<group>"; };
+		7BC2E65A5E699A5E5D834CA2 /* QtCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtCore.framework; path = /Library/Frameworks/QtCore.framework; sourceTree = "<absolute>"; };
+		7CEEAFF9D73420AD772BE912 /* moc_glview.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_glview.cpp; sourceTree = "<group>"; };
+		8EE92F8FA333C9E415C5B34E /* QtXml.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtXml.framework; path = /Library/Frameworks/QtXml.framework; sourceTree = "<absolute>"; };
+		9B36DA7E32F0304E780E7972 /* QtGui.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtGui.framework; path = /Library/Frameworks/QtGui.framework; sourceTree = "<absolute>"; };
+		A144AF16A4A7BBBF30A36ED4 /* painterwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = painterwidget.cpp; sourceTree = "<group>"; };
+		AB241F823D3821A41AAC4BDE /* mainwindow.ui */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = mainwindow.ui; sourceTree = "<group>"; };
+		AFB98B37FF0012B837A2131C /* ui_mainwindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ui_mainwindow.h; sourceTree = "<group>"; };
+		B588B496117C2A600028B2EA /* SchlierenVis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SchlierenVis.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BA68F5FE488C7E2C852B7552 /* QtMultimedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtMultimedia.framework; path = /Library/Frameworks/QtMultimedia.framework; sourceTree = "<absolute>"; };
+		C374004D45E01156F931B37D /* QtOpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QtOpenGL.framework; path = /Library/Frameworks/QtOpenGL.framework; sourceTree = "<absolute>"; };
+		C5D2BC81E23B69F0F5D58F81 /* SchlierenVis.pro */ = {isa = PBXFileReference; lastKnownFileType = text; path = SchlierenVis.pro; sourceTree = "<group>"; };
+		C63FA392C61F27B1B13369C1 /* mainwindow.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mainwindow.h; sourceTree = "<group>"; };
+		C6766F86E49E9C8701C8E637 /* AGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AGL.framework; path = /System/Library/Frameworks/AGL.framework; sourceTree = "<absolute>"; };
+		C983803DCEF20456B6256613 /* filter.ui */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = filter.ui; sourceTree = "<group>"; };
+		DA18A6831232F53228631AD1 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
+		DCDFF7D4DAE217C12A322FC8 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = /System/Library/Frameworks/AudioToolbox.framework; sourceTree = "<absolute>"; };
+		E7FADDE788209127C251A371 /* moc_painterwidget.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = moc_painterwidget.cpp; sourceTree = "<group>"; };
+		EA177DE95BF7D3EF58EE43F7 /* mainwindow.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = mainwindow.cpp; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2A1043669E6E5A7426EA502A /* Frameworks & Libraries */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DF656BFAB727B88ECDEF7CDB /* QtMultimedia.framework in Frameworks & Libraries */,
+				F9E76E570E10AF14870553A7 /* ApplicationServices.framework in Frameworks & Libraries */,
+				6AFFA5CC440B7A45A7B1BFFC /* CoreAudio.framework in Frameworks & Libraries */,
+				7D24C4AAFE054CB4F844982B /* AudioUnit.framework in Frameworks & Libraries */,
+				BE29FCEBE353C8375F034751 /* AudioToolbox.framework in Frameworks & Libraries */,
+				08D8EC4D0C273BC5E194E43D /* QtSvg.framework in Frameworks & Libraries */,
+				C2643FEB592DBFD1429BE4E1 /* QtXml.framework in Frameworks & Libraries */,
+				450A0D11527AF164AEFE7377 /* QtOpenGL.framework in Frameworks & Libraries */,
+				501667F26B3C1FF6767A7C12 /* QtGui.framework in Frameworks & Libraries */,
+				069D05B0128AE5DC7EE31738 /* QtCore.framework in Frameworks & Libraries */,
+				BCEF71E1EDFB18DA77DC750B /* OpenGL.framework in Frameworks & Libraries */,
+				0C6D4628EE0B0D1479A20551 /* AGL.framework in Frameworks & Libraries */,
+			);
+			name = "Frameworks & Libraries";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		05596AB53D8D521C69802C27 /* SchlierenVis */ = {
+			isa = PBXGroup;
+			children = (
+				FB61758D0F0FDA4BA867C3D5 /* Sources */,
+				46E892BBB6BB6952967E0561 /* Temporary Sources */,
+				883D7615C4D2DE3FA1218F12 /* Headers */,
+				7CABE3C80E79AD2B307756D2 /* Sources [qmake] */,
+				EEC299C65D5017EB9DD513B0 /* Sources [UIC] */,
+				ED1E82605DD74B483AF3C982 /* External Frameworks and Libraries */,
+				B588B497117C2A600028B2EA /* Products */,
+			);
+			name = SchlierenVis;
+			sourceTree = "<group>";
+		};
+		46E892BBB6BB6952967E0561 /* Temporary Sources */ = {
+			isa = PBXGroup;
+			children = (
+				336D3C48DD3B44974395C633 /* moc_mainwindow.cpp */,
+				7CEEAFF9D73420AD772BE912 /* moc_glview.cpp */,
+				5716FE872B3E81D7754D78F2 /* moc_filter.cpp */,
+				E7FADDE788209127C251A371 /* moc_painterwidget.cpp */,
+				AFB98B37FF0012B837A2131C /* ui_mainwindow.h */,
+				7780632D1EC9B3DC2F084A77 /* ui_filter.h */,
+			);
+			name = "Temporary Sources";
+			sourceTree = "<group>";
+		};
+		7CABE3C80E79AD2B307756D2 /* Sources [qmake] */ = {
+			isa = PBXGroup;
+			children = (
+				C5D2BC81E23B69F0F5D58F81 /* SchlierenVis.pro */,
+			);
+			name = "Sources [qmake]";
+			sourceTree = "<group>";
+		};
+		883D7615C4D2DE3FA1218F12 /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				C63FA392C61F27B1B13369C1 /* mainwindow.h */,
+				56925EDCA7FB81CB58BC8F8E /* glview.h */,
+				1753CD773078CA2B28BB37C3 /* filter.h */,
+				58D571A0DB4959F8023034C4 /* painterwidget.h */,
+			);
+			name = Headers;
+			sourceTree = "<group>";
+		};
+		B588B497117C2A600028B2EA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B588B496117C2A600028B2EA /* SchlierenVis.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		ED1E82605DD74B483AF3C982 /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				BA68F5FE488C7E2C852B7552 /* QtMultimedia.framework */,
+				27AE7A480FD6C52FCA80FECD /* ApplicationServices.framework */,
+				5047022CEBDAD3272EE3C4D2 /* CoreAudio.framework */,
+				5A5E07CEF4D0A51E8FE3D953 /* AudioUnit.framework */,
+				DCDFF7D4DAE217C12A322FC8 /* AudioToolbox.framework */,
+				2D7FF9EBB69BCF2C19DC629B /* QtSvg.framework */,
+				8EE92F8FA333C9E415C5B34E /* QtXml.framework */,
+				C374004D45E01156F931B37D /* QtOpenGL.framework */,
+				9B36DA7E32F0304E780E7972 /* QtGui.framework */,
+				7BC2E65A5E699A5E5D834CA2 /* QtCore.framework */,
+				DA18A6831232F53228631AD1 /* OpenGL.framework */,
+				C6766F86E49E9C8701C8E637 /* AGL.framework */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		EEC299C65D5017EB9DD513B0 /* Sources [UIC] */ = {
+			isa = PBXGroup;
+			children = (
+				AB241F823D3821A41AAC4BDE /* mainwindow.ui */,
+				C983803DCEF20456B6256613 /* filter.ui */,
+			);
+			name = "Sources [UIC]";
+			sourceTree = "<group>";
+		};
+		FB61758D0F0FDA4BA867C3D5 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				118FCBAABA162BA17933C789 /* main.cpp */,
+				EA177DE95BF7D3EF58EE43F7 /* mainwindow.cpp */,
+				43683289D5AF74328B217274 /* glview.cpp */,
+				6A3DFB9CC6EC3458A715B927 /* filter.cpp */,
+				A144AF16A4A7BBBF30A36ED4 /* painterwidget.cpp */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		13C4A0088B891E653CD8950F /* SchlierenVis */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B588B4B4117C2A960028B2EA /* Build configuration list for PBXNativeTarget "SchlierenVis" */;
+			buildPhases = (
+				D7BA7D76DAB5DD13389D6332 /* Qt Qmake */,
+				A0A52A2ADF7A1E2A99738674 /* Qt Preprocessors */,
+				F6069D5A5DA8AA28EDB8B3C6 /* Project Copy */,
+				C29B8785722055ED95EF7B57 /* Build Sources */,
+				2A1043669E6E5A7426EA502A /* Frameworks & Libraries */,
+				3787F99312C85FF0073FD7BA /* Bundle Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SchlierenVis;
+			productName = SchlierenVis;
+			productReference = B588B496117C2A600028B2EA /* SchlierenVis.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		91B15E841AA80083484172DE /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 2A951308CDB28F104D0A4BD2 /* Build configuration list for PBXProject "SchlierenVis" */;
+			compatibilityVersion = "Xcode 2.4";
+			hasScannedForEncodings = 1;
+			mainGroup = 05596AB53D8D521C69802C27 /* SchlierenVis */;
+			productRefGroup = B588B497117C2A600028B2EA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				13C4A0088B891E653CD8950F /* SchlierenVis */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3787F99312C85FF0073FD7BA /* Bundle Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "Bundle Resources";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A0A52A2ADF7A1E2A99738674 /* Qt Preprocessors */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "Qt Preprocessors";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/carson/svn/SchlierenVis -f SchlierenVis.xcodeproj/qt_preprocess.mak";
+		};
+		D7BA7D76DAB5DD13389D6332 /* Qt Qmake */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "Qt Qmake";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/carson/svn/SchlierenVis -f SchlierenVis.xcodeproj/qt_makeqmake.mak";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C29B8785722055ED95EF7B57 /* Build Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2B093CA6F071B023A473CED0 /* main.cpp in Build Sources */,
+				462C0F34BBEF2375A9469BB5 /* mainwindow.cpp in Build Sources */,
+				ADDE0CE603BA5561F2ED6D05 /* glview.cpp in Build Sources */,
+				4C6CF7747967600158C244AA /* filter.cpp in Build Sources */,
+				32D4747DB6088A7E8EDC372C /* painterwidget.cpp in Build Sources */,
+				26C2BED6C570C95F5243C556 /* moc_mainwindow.cpp in Build Sources */,
+				C1436F343D531E04FECBC4AA /* moc_glview.cpp in Build Sources */,
+				D03B586AB1939D7132376EEE /* moc_filter.cpp in Build Sources */,
+				EEBB90AD653F0526CF2A1B9B /* moc_painterwidget.cpp in Build Sources */,
+			);
+			name = "Build Sources";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		8DB1DD96F65B1BF1FFC506E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+			};
+			name = Debug;
+		};
+		95E1EB2E5DDD587BE5B3E548 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+			};
+			name = Release;
+		};
+		B588B49D117C2A600028B2EA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = i386;
+				BUILD_ROOT = /Users/carson/svn/SchlierenVis;
+				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = 1.0;
+				DYLIB_CURRENT_VERSION = 1.0.0;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = (
+					/Library/Frameworks/QtCore.framework/Versions/4/Headers,
+					/usr/include/QtCore,
+					/Library/Frameworks/QtGui.framework/Versions/4/Headers,
+					/usr/include/QtGui,
+					/Library/Frameworks/QtOpenGL.framework/Versions/4/Headers,
+					/usr/include/QtOpenGL,
+					/Library/Frameworks/QtXml.framework/Versions/4/Headers,
+					/usr/include/QtXml,
+					/Library/Frameworks/QtSvg.framework/Versions/4/Headers,
+					/usr/include/QtSvg,
+					/Library/Frameworks/QtMultimedia.framework/Versions/4/Headers,
+					/usr/include/QtMultimedia,
+					/usr/include,
+					/System/Library/Frameworks/OpenGL.framework/Versions/A/Headers,
+					/System/Library/Frameworks/AGL.framework/Headers,
+					.,
+					.,
+					/usr/local/include,
+					/System/Library/Frameworks/CarbonCore.framework/Headers,
+					"/usr/local/Qt4.6/mkspecs/macx-xcode",
+				);
+				INFOPLIST_FILE = Info.plist;
+				LEXFLAGS = "";
+				LIBRARY_SEARCH_PATHS = (
+					/Library/Frameworks,
+					/System/Library/Frameworks/,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				OTHER_CFLAGS = (
+					"-pipe",
+					"-g",
+					"-Wall",
+					"-W",
+					"-DQT_MULTIMEDIA_LIB",
+					"-DQT_SVG_LIB",
+					"-DQT_XML_LIB",
+					"-DQT_OPENGL_LIB",
+					"-DQT_GUI_LIB",
+					"-DQT_CORE_LIB",
+					"-DQT_SHARED",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-pipe",
+					"-g",
+					"-Wall",
+					"-W",
+					"-DQT_MULTIMEDIA_LIB",
+					"-DQT_SVG_LIB",
+					"-DQT_XML_LIB",
+					"-DQT_OPENGL_LIB",
+					"-DQT_GUI_LIB",
+					"-DQT_CORE_LIB",
+					"-DQT_SHARED",
+				);
+				OTHER_LDFLAGS = (
+					"-headerpad_max_install_names",
+					"-L/Library/Frameworks",
+					"-F/Library/Frameworks",
+				);
+				OTHER_REZFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = SchlierenVis;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = "";
+				YACCFLAGS = "-d";
+			};
+			name = Debug;
+		};
+		B588B49E117C2A600028B2EA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = i386;
+				BUILD_ROOT = /Users/carson/svn/SchlierenVis;
+				COPY_PHASE_STRIP = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1.0;
+				DYLIB_CURRENT_VERSION = 1.0.0;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				HEADER_SEARCH_PATHS = (
+					/Library/Frameworks/QtCore.framework/Versions/4/Headers,
+					/usr/include/QtCore,
+					/Library/Frameworks/QtGui.framework/Versions/4/Headers,
+					/usr/include/QtGui,
+					/Library/Frameworks/QtOpenGL.framework/Versions/4/Headers,
+					/usr/include/QtOpenGL,
+					/Library/Frameworks/QtXml.framework/Versions/4/Headers,
+					/usr/include/QtXml,
+					/Library/Frameworks/QtSvg.framework/Versions/4/Headers,
+					/usr/include/QtSvg,
+					/Library/Frameworks/QtMultimedia.framework/Versions/4/Headers,
+					/usr/include/QtMultimedia,
+					/usr/include,
+					/System/Library/Frameworks/OpenGL.framework/Versions/A/Headers,
+					/System/Library/Frameworks/AGL.framework/Headers,
+					.,
+					.,
+					/usr/local/include,
+					/System/Library/Frameworks/CarbonCore.framework/Headers,
+					"/usr/local/Qt4.6/mkspecs/macx-xcode",
+				);
+				INFOPLIST_FILE = Info.plist;
+				LEXFLAGS = "";
+				LIBRARY_SEARCH_PATHS = (
+					/Library/Frameworks,
+					/System/Library/Frameworks/,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				OTHER_CFLAGS = (
+					"-pipe",
+					"-g",
+					"-Wall",
+					"-W",
+					"-DQT_MULTIMEDIA_LIB",
+					"-DQT_SVG_LIB",
+					"-DQT_XML_LIB",
+					"-DQT_OPENGL_LIB",
+					"-DQT_GUI_LIB",
+					"-DQT_CORE_LIB",
+					"-DQT_SHARED",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-pipe",
+					"-g",
+					"-Wall",
+					"-W",
+					"-DQT_MULTIMEDIA_LIB",
+					"-DQT_SVG_LIB",
+					"-DQT_XML_LIB",
+					"-DQT_OPENGL_LIB",
+					"-DQT_GUI_LIB",
+					"-DQT_CORE_LIB",
+					"-DQT_SHARED",
+				);
+				OTHER_LDFLAGS = (
+					"-headerpad_max_install_names",
+					"-L/Library/Frameworks",
+					"-F/Library/Frameworks",
+				);
+				OTHER_REZFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = SchlierenVis;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = "";
+				YACCFLAGS = "-d";
+			};
+			name = Release;
+		};
+		B588B49F117C2A600028B2EA /* Default */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = i386;
+				BUILD_ROOT = /Users/carson/svn/SchlierenVis;
+				DYLIB_COMPATIBILITY_VERSION = 1.0;
+				DYLIB_CURRENT_VERSION = 1.0.0;
+				HEADER_SEARCH_PATHS = (
+					/Library/Frameworks/QtCore.framework/Versions/4/Headers,
+					/usr/include/QtCore,
+					/Library/Frameworks/QtGui.framework/Versions/4/Headers,
+					/usr/include/QtGui,
+					/Library/Frameworks/QtOpenGL.framework/Versions/4/Headers,
+					/usr/include/QtOpenGL,
+					/Library/Frameworks/QtXml.framework/Versions/4/Headers,
+					/usr/include/QtXml,
+					/Library/Frameworks/QtSvg.framework/Versions/4/Headers,
+					/usr/include/QtSvg,
+					/Library/Frameworks/QtMultimedia.framework/Versions/4/Headers,
+					/usr/include/QtMultimedia,
+					/usr/include,
+					/System/Library/Frameworks/OpenGL.framework/Versions/A/Headers,
+					/System/Library/Frameworks/AGL.framework/Headers,
+					.,
+					.,
+					/usr/local/include,
+					/System/Library/Frameworks/CarbonCore.framework/Headers,
+					"/usr/local/Qt4.6/mkspecs/macx-xcode",
+				);
+				INFOPLIST_FILE = Info.plist;
+				LEXFLAGS = "";
+				LIBRARY_SEARCH_PATHS = (
+					/Library/Frameworks,
+					/System/Library/Frameworks/,
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.4;
+				OTHER_CFLAGS = (
+					"-pipe",
+					"-g",
+					"-Wall",
+					"-W",
+					"-DQT_MULTIMEDIA_LIB",
+					"-DQT_SVG_LIB",
+					"-DQT_XML_LIB",
+					"-DQT_OPENGL_LIB",
+					"-DQT_GUI_LIB",
+					"-DQT_CORE_LIB",
+					"-DQT_SHARED",
+				);
+				OTHER_CPLUSPLUSFLAGS = (
+					"-pipe",
+					"-g",
+					"-Wall",
+					"-W",
+					"-DQT_MULTIMEDIA_LIB",
+					"-DQT_SVG_LIB",
+					"-DQT_XML_LIB",
+					"-DQT_OPENGL_LIB",
+					"-DQT_GUI_LIB",
+					"-DQT_CORE_LIB",
+					"-DQT_SHARED",
+				);
+				OTHER_LDFLAGS = (
+					"-headerpad_max_install_names",
+					"-L/Library/Frameworks",
+					"-F/Library/Frameworks",
+				);
+				OTHER_REZFLAGS = "";
+				PREBINDING = NO;
+				PRODUCT_NAME = SchlierenVis;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = "";
+				YACCFLAGS = "-d";
+			};
+			name = Default;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2A951308CDB28F104D0A4BD2 /* Build configuration list for PBXProject "SchlierenVis" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8DB1DD96F65B1BF1FFC506E0 /* Debug */,
+				95E1EB2E5DDD587BE5B3E548 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B588B4B4117C2A960028B2EA /* Build configuration list for PBXNativeTarget "SchlierenVis" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B588B49D117C2A600028B2EA /* Debug */,
+				B588B49E117C2A600028B2EA /* Release */,
+				B588B49F117C2A600028B2EA /* Default */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Default;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 91B15E841AA80083484172DE /* Project object */;
+}
