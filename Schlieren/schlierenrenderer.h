@@ -44,6 +44,8 @@ public:
     void setRenderSize(int x, int y) { _params.width = x; _params.height = y; }
     int getWidth() { return _params.width; }
     int getHeight() { return _params.height; }
+    void setWidth(int width) { _params.width=width; }
+    void setHeight(int height) { _params.height=height; }
     void render();
     void setFilter(SchlierenCutoff* filter);
     void setThreadSafe(bool st) { _params.threadSafe = st; }

@@ -233,8 +233,8 @@ deleteDepthBuffer(GLuint* depth)
 {
   _params.passes = 0;
   //_params.tex_data = NULL;
-  _params.width = 200;
-  _params.height = 200;
+  _params.width = 512;
+  _params.height = 512;
   _params.inout_rgb = NULL;
   _params.out_rgb = NULL;
   //        _params.camera_pos = make_float3(0,0,-5);

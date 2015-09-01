@@ -386,6 +386,7 @@ int main(int argc, char** argv)
   cout << "setting image filter\n";
   renderer.setImageFilter(new ImageFilter());
   cout << "setting up glut\n";
+  renderer.setRenderSize(512,512);
 
   glutInit( &argc, argv);
   glutInitDisplayMode( GLUT_RGBA | GLUT_DOUBLE);
@@ -444,7 +445,6 @@ extern "C"
       data_max = sizez;
     if (sizez > (data_max-data_min))
       sizez = data_max-data_min;
-    printf(" size: %f %f %f ", float(sizex), float(sizey), float(sizez));
     float* data = new float[sizex*sizey*sizez];
     float min = FLT_MAX;
     float max = -FLT_MAX;
@@ -454,6 +454,7 @@ extern "C"
       for(int j = 0; j < sizey; j++) {
         for( int k = 0; k < sizez; k++) {
           *datai = (*dataNrrd)*data_fudge;
+//            *datai = float(i)/float(sizex)*data_fudge;
 
           if (*datai > max)
             max = *datai;
@@ -465,6 +466,7 @@ extern "C"
         }
       }
     }
+    printf(" size: %f %f %f min %f max %f fudge %f", float(sizex), float(sizey), float(sizez), min, max, data_fudge);
 
 
     datafile->data = data;

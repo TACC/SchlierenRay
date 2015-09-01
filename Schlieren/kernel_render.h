@@ -39,8 +39,8 @@ __global__ void kernel_render(RenderParameters* paramsp, float4* inout_pixels, u
     float3 lookup_scale = {1.0f/(max_bound.x-min_bound.x), 1.0f/(max_bound.y - min_bound.y), 1.0f/(max_bound.z-min_bound.z)};
     int data_width = params.data_width, data_height = params.data_height, data_depth = params.data_depth;
 
-    printf("min_bound, max_bound: %f %f %f, %f %f %f\n", min_bound.x, min_bound.y, min_bound.z,
-            max_bound.x,max_bound.y,max_bound.z);
+//    printf("min_bound, max_bound: %f %f %f, %f %f %f\n", min_bound.x, min_bound.y, min_bound.z,
+//            max_bound.x,max_bound.y,max_bound.z);
 
     float max_scale = max(max(float(params.data_width), float(params.data_height)), float(params.data_depth));
     //float scaler = 1.0/max_scale;
@@ -129,7 +129,7 @@ __global__ void kernel_render(RenderParameters* paramsp, float4* inout_pixels, u
         for(i = 0; i < steps; ++i) {
             pos = pos + dir*params.stepSize/old_index;
             float3 offset = pos-min_bound;
-            float3 lookupfn = offset*lookup_scale*(0.25); // normalized lookup // Carson: adding .25 fixes the replication bug.  It seems
+            float3 lookupfn = offset*lookup_scale; // normalized lookup // Carson: adding .25 fixes the replication bug.  It seems
             // that tex lookups have changed, should fix this earlier in the pipe.
             //float3 lookupf = {lookupfn.x*float(params.data_width), lookupfn.y*float(params.data_height), lookupfn.z*float(params.data_depth)};
             float3 lookup = {static_cast<float>(lookupfn.x*params.data_width), static_cast<float>(lookupfn.y*params.data_height), static_cast<float>(lookupfn.z*params.data_depth) };

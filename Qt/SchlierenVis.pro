@@ -18,12 +18,12 @@ HEADERS += mainwindow.h \
     painterwidget.h
 FORMS += mainwindow.ui \
     filter.ui
-INCLUDEPATH += /Users/carson/svn/Schlieren
+INCLUDEPATH += /Users/carson/git/SchlierenRay/Schlieren
 INCLUDEPATH += /Developer/NVIDIA/CUDA-7.0/samples/common/inc/
 INCLUDEPATH += /usr/local/cuda/include/
 INCLUDEPATH += /Users/carson/opt/teem-1.11.0-src/include
 #LIBS += -LD:/home/carson/svn/Schlieren/build -lSchlieren
 #unix:LIBS += -lglut
-LIBPATH += /Users/carson/svn/Schlieren/
+LIBPATH += /Users/carson/git/SchlierenRay/Schlieren/build
 LIBPATH += /Users/carson/opt/teem-1.11.0-src/bin
-LIBS += -L/Users/carson/svn/Schlieren/ -lSchlieren -lteem
+LIBS +=  -lSchlieren -lteem
