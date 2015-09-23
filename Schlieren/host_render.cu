@@ -295,6 +295,9 @@ void Host_Resize(RenderParameters* paramsp)
     if (d_inout)
         cudaFree(d_inout);
     cudaMalloc((void**)&d_inout, sizeof(float4)*paramsp->width*paramsp->height);
+    if (paramsp->inout_rgb)
+        delete [] paramsp->inout_rgb;
+    paramsp->inout_rgb = new float4[paramsp->width*paramsp->height];
     for(size_t i = 0; i < paramsp->width*paramsp->height; i++)
         paramsp->inout_rgb[i] = make_float4(0,0,0,0);
     cudaMemcpy(d_inout, paramsp->inout_rgb, sizeof(float4)*paramsp->width*paramsp->height, cudaMemcpyHostToDevice);
