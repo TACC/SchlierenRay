@@ -81,7 +81,11 @@ GLView::GLView(QWidget *parent)
               datap+=4;
         }
     }
+#if USE_IMAGE_CUTOFF
     filter = new SchlierenImageCutoff(cutoffData);
+#else
+    filter = new SchlierenPositiveHorizontalKnifeEdgeCutoff();
+#endif
     schlieren->setFilter(filter);
     schlieren->setImageFilter(new ImageFilter());
     schlieren->setStepSize(0.02);
@@ -302,7 +306,9 @@ void GLView::mouseMoveEvent(QMouseEvent *e)
         else if (e->buttons() & Qt::LeftButton)
         {
             QPoint offset = e->pos() - last_position;
-            schlieren->rotate(float(offset.x()*.005f), float(offset.y())*.005f);
+//            schlieren->rotate(float(offset.x()*.005f), float(offset.y())*.005f);
+
+            schlieren->rotate(float(offset.x()*.005f), 0);
 
               last_position = e->pos();
               //  qDebug() << float(anchor.x())/float(width()) << " " << float(anchor.y())/float(height());

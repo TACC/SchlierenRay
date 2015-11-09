@@ -39,7 +39,8 @@ __device__ void kernel_cutoff(RenderParameters& params, float2 offset, float pha
     float kill_chance = 0;
     float scale = params.cutoffScalar;
     offset *= scale;
-      switch(params.cutoff)
+    int cutoff = params.cutoff;
+      switch(cutoff)
       {
         case 1:
           kill_chance = offset.x;
@@ -96,7 +97,6 @@ __device__ void kernel_cutoff(RenderParameters& params, float2 offset, float pha
  save_chance = sin(phase_shift);
 
     //   #endif
-
 color = make_float3(save_chance,save_chance,save_chance);
 //
 //    float3 base = camera_y;

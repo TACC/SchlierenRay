@@ -246,6 +246,7 @@ __global__ void kernel_render(RenderParameters* paramsp, float4* inout_pixels, u
 
     //   #if THREAD_SAFE
     __syncthreads();
+    float np = 1.0f/float(num_passes);
     if (threadIdx.x == 0 && threadIdx.y == 0){
         unsigned int num = blockDim.x*blockDim.y*num_passes;
         for(int i = 0; i < num; i++) {
@@ -256,7 +257,7 @@ __global__ void kernel_render(RenderParameters* paramsp, float4* inout_pixels, u
                 inout_pixels[ind] += make_float4(c.x,c.y,c.z,1.0);
 //                float val = float(ind%window_width)/float(window_width);
 //                c = make_float3(val,val,val);
-                inout_pixels[ind] += make_float4(c.x,c.y,c.z,1.0);
+//                inout_pixels[ind] += make_float4(c.x*np,c.y*np,c.z*np,1.0);
             }
         }
     }

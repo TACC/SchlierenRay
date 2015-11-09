@@ -42,7 +42,7 @@ ColorFilterWidget::ColorFilterWidget(GLView* gl, QWidget *parent) :
         dataLabel->setText("1.0");
         dataSlider = new QSlider(Qt::Horizontal);
         dataSlider->setRange(1,10000);
-        dataSlider->setValue(100);
+        dataSlider->setValue(10);
 //        dataSlider->setSingleStep(0.01);
 
         QLabel* label = new QLabel("Scalar:");
@@ -158,7 +158,7 @@ void ColorFilterWidget::imageChangedSlot(float* img, int width, int height)
 
 void ColorFilterWidget::onDataSliderChange(int v)
  {
-  float val = float(v)/100.0f;
+  float val = float(v)/1000.0f;
   stringstream ss;
   ss << val;
   dataLabel->setText(QString(ss.str().c_str()));

@@ -8,6 +8,8 @@
 #include <string>
 #include "schlierenrenderer.h"
 
+#define USE_IMAGE_CUTOFF 0
+
 class GLView : public QGLWidget
 {
     Q_OBJECT
@@ -48,7 +50,7 @@ private:
         QGLFramebufferObject * fbo;
         SchlierenRenderer* schlieren;
         int pass;
-        SchlierenImageCutoff* filter;
+        SchlierenCutoff* filter;
         unsigned char* trace_buffer;
 
 };

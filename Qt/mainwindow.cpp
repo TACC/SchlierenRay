@@ -43,7 +43,10 @@ MainWindow::MainWindow(QWidget *parent) :
     fileMenu->addAction(saveImageAct);
 	
     connect(view, SIGNAL(drawFilterAtPoint(float,float)), color_widget, SLOT(drawBrush(float,float)));
+
+#if USE_IMAGE_CUTOFF
     connect(color_widget, SIGNAL(imageChanged(float*,int,int)), view, SLOT(setImageCutoff(float*,int,int)));
+#endif
 }
 
 MainWindow::~MainWindow()
