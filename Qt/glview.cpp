@@ -84,7 +84,8 @@ GLView::GLView(QWidget *parent)
 #if USE_IMAGE_CUTOFF
     filter = new SchlierenImageCutoff(cutoffData);
 #else
-    filter = new SchlierenPositiveHorizontalKnifeEdgeCutoff();
+//    filter = new SchlierenPositiveHorizontalKnifeEdgeCutoff();
+    filter = new SchlierenBOSCutoff();
 #endif
     schlieren->setFilter(filter);
     schlieren->setImageFilter(new ImageFilter());
@@ -308,7 +309,7 @@ void GLView::mouseMoveEvent(QMouseEvent *e)
             QPoint offset = e->pos() - last_position;
 //            schlieren->rotate(float(offset.x()*.005f), float(offset.y())*.005f);
 
-            schlieren->rotate(float(offset.x()*.005f), 0);
+            schlieren->rotate(float(offset.y()*.05f), 0);
 
               last_position = e->pos();
               //  qDebug() << float(anchor.x())/float(width()) << " " << float(anchor.y())/float(height());

@@ -203,7 +203,13 @@ __global__ void kernel_render(RenderParameters* paramsp, float4* inout_pixels, u
 
         float2 cutoff_offset = make_float2(signedx, signedy);
         float3 c;
-        kernel_cutoff(params, cutoff_offset, phase_shift, c);
+        if (params.cutoff == CUTOFF_BOS)
+        {
+                float bos = random_array[r_x];//GPU_RAND();
+                c = make_float3(bos,bos,bos);
+        }
+        else
+            kernel_cutoff(params, cutoff_offset, phase_shift, c);
         accum = accum*params.stepSize;
 
         sindices[sindex] =win_index;

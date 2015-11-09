@@ -40,6 +40,13 @@ public:
     virtual void Setup(RenderParameters& params) = 0;
 };
 
+class SchlierenBOSCutoff : public SchlierenCutoff
+{
+public:
+    SchlierenBOSCutoff() {}
+    virtual void Setup(RenderParameters& params) { params.cutoff = CUTOFF_BOS; }
+};
+
 class SchlierenShadowgraphCutoff : public SchlierenCutoff
 {
 public:
