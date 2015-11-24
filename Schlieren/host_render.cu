@@ -180,7 +180,7 @@ tex_color.normalized = false;
 
 void Host_Render(RenderParameters* paramsp)
 {
-    printf("rendering...");
+    // printf("rendering...");
     if (last_width != paramsp->width || last_height != paramsp->height)
         Host_Resize(paramsp);
     //for(size_t i = 0; i < paramsp->width*paramsp->height; i++)
@@ -237,7 +237,7 @@ for(int i = 0; i < paramsp->width; i++)
         }
     }
     glDrawPixels(params.width, params.height, GL_RGBA, GL_UNSIGNED_BYTE, paramsp->out_rgb);
-    printf(" rendering finished.\n");
+    // printf(" rendering finished.\n");
 }
 
 void Host_Clear(RenderParameters* paramsp)

@@ -87,8 +87,8 @@ GLView::GLView(QWidget *parent)
 #if USE_IMAGE_CUTOFF
     filter = new SchlierenImageCutoff(cutoffData);
 #else
-//    filter = new SchlierenPositiveHorizontalKnifeEdgeCutoff();
-    filter = new SchlierenBOSCutoff();
+    filter = new SchlierenPositiveHorizontalKnifeEdgeCutoff();
+    //filter = new SchlierenBOSCutoff();
 #endif
     schlieren->setFilter(filter);
     schlieren->setImageFilter(new ImageFilter());
@@ -204,7 +204,7 @@ void GLView::draw()
 //
 //    glColor4f(1.0f, 0.0f, 0.0f, 1.0f);
 //    glutSolidTeapot(1.0);
-    qDebug() << "rendering schlieren image";
+    // qDebug() << "rendering schlieren image";
 
       schlieren->render();
 
