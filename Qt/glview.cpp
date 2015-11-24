@@ -9,7 +9,10 @@
 #include <teem/nrrd.h>
 #include <iostream>
 #include <string>
+#include <stringstream>
+#include "bmputil.h"
 using namespace std;
+
 
 typedef struct {
   float* data;
@@ -326,6 +329,22 @@ void GLView::wheelEvent(QWheelEvent *e)
     draw();
 }
 
+
+void write_file(std::string fn, unsigned int *out_rgb, int width, int height) {
+    bmp::bmpheader bmph;
+    bmph.set_size(width, height);
+
+    char* rgba = (char*)out_rgb;
+    bmp::rgba_to_bgra(rgba, width, height);
+
+    FILE *f = fopen(fn.c_str(), "w");
+    fwrite((void*)&bmph, sizeof(bmph), 1, f);
+    size_t size = width * height * 4;
+    fwrite((void*)rgba, size, 1, f);
+    fclose(f);
+}
+
+
 void GLView::mouseDoubleClickEvent(QMouseEvent *)
 {
     RenderParameters &p = schlieren->_params;
@@ -378,8 +397,9 @@ void GLView::mouseDoubleClickEvent(QMouseEvent *)
                 schlieren->render();
             }
 
-            // write output to file
-            // write_file(p.out_rgb, p.width, p.height);
+            stringstream ss;
+            ss << i << "_base.bmp";
+            write_file(ss.str(), p.out_rgb, p.width, p.height);
         }
 
         // render with data
@@ -392,8 +412,9 @@ void GLView::mouseDoubleClickEvent(QMouseEvent *)
                 schlieren->render();
             }
 
-            // write output to file
-            // write_file(p.out_rgb, p.width, p.height);
+            stringstream ss;
+            ss << i << "_data.bmp";
+            write_file(ss, p.out_rgb, p.width, p.height);
         }
 
     }
