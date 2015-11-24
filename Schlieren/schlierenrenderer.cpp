@@ -378,6 +378,7 @@ void SchlierenRenderer::updateCamera()
   _params.camera_y = normalize(cross(_params.camera_x, _params.camera_z));
 
 
+#if 0
   // alim: fixed rotation logic
 
   static int counter = 0;
@@ -412,8 +413,47 @@ void SchlierenRenderer::updateCamera()
   std::cout << "cam-z: [" << _params.camera_z.x << ", " << _params.camera_z.y << ", " << _params.camera_z.z << "]" << std::endl;
 
   counter++;
+#endif
 
 
+
+  _params.camera_corner = _params.camera_pos-(_params.camera_x*.5+_params.camera_y*.5);
+}
+
+void SchlierenRenderer::setCameraIndex(int idx)
+{
+  // alim: fixed rotation logic
+  float3 center = _params.max_bound/2.0f;
+
+  int counter = idx;
+
+  const double angle_step = M_PI / 72.0;
+  const double start_angle = angle_step * 0; // 73.0;
+  double curr_angle = angle_step * counter + start_angle;
+  float y = cos(curr_angle) * 5.0;
+  float z = -sin(curr_angle) * 5.0;
+
+  _params.camera_pos = normalize(make_float3(0, y, z));
+  _params.camera_pos = make_float3(0, y, z);
+
+
+  if(counter == 0) {
+    _params.camera_x = make_float3(-1, 0, 0);
+    _params.camera_y = make_float3(0, 0, 1);
+    _params.camera_z = make_float3(0, -1, 0);
+
+  } else {
+    _params.camera_z = normalize(_center-_params.camera_pos);
+    _params.camera_y = make_float3(0,1,0);
+    _params.camera_x = normalize(cross(_params.camera_y, _params.camera_z*-1.0f));
+    _params.camera_y = normalize(cross(_params.camera_x, _params.camera_z));
+  }
+
+  // std::cout << "center: [" << counter << "] pos: [" << center.x << ", " << center.y << ", " << center.z << "]" << std::endl;
+  // std::cout << "cam: [" << counter << "] pos: [" << _params.camera_pos.x << ", " << _params.camera_pos.y << ", " << _params.camera_pos.z << "]" << std::endl;
+  // std::cout << "cam-x: [" << _params.camera_x.x << ", " << _params.camera_x.y << ", " << _params.camera_x.z << "]" << std::endl;
+  // std::cout << "cam-y: [" << _params.camera_y.x << ", " << _params.camera_y.y << ", " << _params.camera_y.z << "]" << std::endl;
+  // std::cout << "cam-z: [" << _params.camera_z.x << ", " << _params.camera_z.y << ", " << _params.camera_z.z << "]" << std::endl;
 
   _params.camera_corner = _params.camera_pos-(_params.camera_x*.5+_params.camera_y*.5);
 }

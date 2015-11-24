@@ -352,39 +352,7 @@ void GLView::mouseDoubleClickEvent(QMouseEvent *)
     // set resolution
 
     for(int i=0; i<72; i++) {
-
-        // set camera
-        float3 center = p.max_bound/2.0f;
-        int counter = i;
-
-        const double angle_step = M_PI / 72.0;
-        const double start_angle = angle_step * 0; // 73.0;
-        double curr_angle = angle_step * counter + start_angle;
-        float y = cos(curr_angle) * 5.0;
-        float z = -sin(curr_angle) * 5.0;
-
-        p.camera_pos = normalize(make_float3(0, y, z));
-        p.camera_pos = make_float3(0, y, z);
-
-        if(counter == 0) {
-            p.camera_x = make_float3(-1, 0, 0);
-            p.camera_y = make_float3(0, 0, 1);
-            p.camera_z = make_float3(0, -1, 0);
-
-        } else {
-            p.camera_z = normalize(_center-p.camera_pos);
-            p.camera_y = make_float3(0,1,0);
-            p.camera_x = normalize(cross(p.camera_y, p.camera_z*-1.0f));
-            p.camera_y = normalize(cross(p.camera_x, p.camera_z));
-        }
-
-        // std::cout << "center: [" << counter << "] pos: [" << center.x << ", " << center.y << ", " << center.z << "]" << std::endl;
-        // std::cout << "cam: [" << counter << "] pos: [" << p.camera_pos.x << ", " << p.camera_pos.y << ", " << p.camera_pos.z << "]" << std::endl;
-        // std::cout << "cam-x: [" << p.camera_x.x << ", " << p.camera_x.y << ", " << p.camera_x.z << "]" << std::endl;
-        // std::cout << "cam-y: [" << p.camera_y.x << ", " << p.camera_y.y << ", " << p.camera_y.z << "]" << std::endl;
-        // std::cout << "cam-z: [" << p.camera_z.x << ", " << p.camera_z.y << ", " << p.camera_z.z << "]" << std::endl;
-
-        p.camera_corner = p.camera_pos-(p.camera_x*.5+p.camera_y*.5);
+        schlieren->setCameraIndex(i);
 
         float dataScalar = p.dataScalar;
         // render background, no data
@@ -414,11 +382,9 @@ void GLView::mouseDoubleClickEvent(QMouseEvent *)
 
             stringstream ss;
             ss << i << "_data.bmp";
-            write_file(ss, p.out_rgb, p.width, p.height);
+            write_file(ss.str(), p.out_rgb, p.width, p.height);
         }
-
     }
-
 }
 
 void GLView::saveGLState()
