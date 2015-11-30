@@ -423,7 +423,7 @@ void SchlierenRenderer::updateCamera()
 void SchlierenRenderer::setCameraIndex(int idx)
 {
   // alim: fixed rotation logic
-  float3 center = _params.max_bound/2.0f;
+  float3 center = make_float3(0, -_params.max_bound.y, 0);
 
   int counter = idx;
 
@@ -443,7 +443,7 @@ void SchlierenRenderer::setCameraIndex(int idx)
     _params.camera_z = make_float3(0, -1, 0);
 
   } else {
-    _params.camera_z = normalize(_center-_params.camera_pos);
+    _params.camera_z = normalize(center-_params.camera_pos);
     _params.camera_y = make_float3(0,1,0);
     _params.camera_x = normalize(cross(_params.camera_y, _params.camera_z*-1.0f));
     _params.camera_y = normalize(cross(_params.camera_x, _params.camera_z));

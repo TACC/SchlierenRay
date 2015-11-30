@@ -9,7 +9,7 @@
 #include <teem/nrrd.h>
 #include <iostream>
 #include <string>
-#include <stringstream>
+#include <sstream>
 #include "bmputil.h"
 using namespace std;
 
