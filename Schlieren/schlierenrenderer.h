@@ -56,6 +56,7 @@ public:
     void setOctreeThreshold(float t) {  }
     void rotate(float x, float y);
     void updateCamera();
+    void setCameraIndex(int idx);
     void clear();
     void setRaysPerPixel(int rpp) { _params.raysPerPixel = rpp; }
     int getRaysPerPixel() { return _params.raysPerPixel; }

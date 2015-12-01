@@ -9,7 +9,10 @@
 #include <teem/nrrd.h>
 #include <iostream>
 #include <string>
+#include <sstream>
+#include "bmputil.h"
 using namespace std;
+
 
 typedef struct {
   float* data;
@@ -84,8 +87,8 @@ GLView::GLView(QWidget *parent)
 #if USE_IMAGE_CUTOFF
     filter = new SchlierenImageCutoff(cutoffData);
 #else
-//    filter = new SchlierenPositiveHorizontalKnifeEdgeCutoff();
-    filter = new SchlierenBOSCutoff();
+    filter = new SchlierenPositiveHorizontalKnifeEdgeCutoff();
+    //filter = new SchlierenBOSCutoff();
 #endif
     schlieren->setFilter(filter);
     schlieren->setImageFilter(new ImageFilter());
@@ -201,7 +204,7 @@ void GLView::draw()
 //
 //    glColor4f(1.0f, 0.0f, 0.0f, 1.0f);
 //    glutSolidTeapot(1.0);
-    qDebug() << "rendering schlieren image";
+    // qDebug() << "rendering schlieren image";
 
       schlieren->render();
 
@@ -326,9 +329,62 @@ void GLView::wheelEvent(QWheelEvent *e)
     draw();
 }
 
+
+void write_file(std::string fn, unsigned int *out_rgb, int width, int height) {
+    bmp::bmpheader bmph;
+    bmph.set_size(width, height);
+
+    char* rgba = (char*)out_rgb;
+    bmp::rgba_to_bgra(rgba, width, height);
+
+    FILE *f = fopen(fn.c_str(), "w");
+    fwrite((void*)&bmph, sizeof(bmph), 1, f);
+    size_t size = width * height * 4;
+    fwrite((void*)rgba, size, 1, f);
+    fclose(f);
+}
+
+
 void GLView::mouseDoubleClickEvent(QMouseEvent *)
 {
-    //anim->start();
+    RenderParameters &p = schlieren->_params;
+
+    // set resolution
+
+    for(int i=0; i<72; i++) {
+        schlieren->setCameraIndex(i);
+
+        float dataScalar = p.dataScalar;
+        // render background, no data
+        {
+            p.dataScalar = 0.0;
+            schlieren->clear();
+            pass = 0;
+
+            for(pass=0; pass<10; pass++) {
+                schlieren->render();
+            }
+
+            stringstream ss;
+            ss << i << "_base.bmp";
+            write_file(ss.str(), p.out_rgb, p.width, p.height);
+        }
+
+        // render with data
+        {
+            p.dataScalar = dataScalar;
+            schlieren->clear();
+            pass = 0;
+
+            for(pass=0; pass<10; pass++) {
+                schlieren->render();
+            }
+
+            stringstream ss;
+            ss << i << "_data.bmp";
+            write_file(ss.str(), p.out_rgb, p.width, p.height);
+        }
+    }
 }
 
 void GLView::saveGLState()
