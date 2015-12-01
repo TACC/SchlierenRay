@@ -365,8 +365,6 @@ void SchlierenRenderer::updateCamera()
   _params.camera_x = normalize(cross(_params.camera_y, _params.camera_z*-1.0f));
   _params.camera_y = normalize(cross(_params.camera_x, _params.camera_z));
 
-
-
   _params.camera_pos.z = _center.z + cos(_rot_y)*5.0;
   _params.camera_pos.y = _center.y + sin(_rot_y)*5.0;
   _params.camera_z = normalize(_center-_params.camera_pos);
@@ -375,8 +373,6 @@ void SchlierenRenderer::updateCamera()
   _params.camera_x = normalize(cross(_params.camera_y, _params.camera_z*-1.0f));
   //    camera_x = set_float3(1,0,0);
   _params.camera_y = normalize(cross(_params.camera_x, _params.camera_z));
-
-
 
   _params.camera_corner = _params.camera_pos-(_params.camera_x*.5+_params.camera_y*.5);
 }
