@@ -47,6 +47,7 @@ public:
     void setWidth(int width) { _params.width=width; }
     void setHeight(int height) { _params.height=height; }
     void render();
+    void copyInoutBuffer();
     void setFilter(SchlierenCutoff* filter);
     void setThreadSafe(bool st) { _params.threadSafe = st; }
     void setImageFilter(ImageFilter* imageFilter) { imageFilter->Setup(_params); }

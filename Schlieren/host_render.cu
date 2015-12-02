@@ -177,6 +177,10 @@ tex_color.normalized = false;
 
 }
 
+void Host_CopyInoutBuffer(RenderParameters* paramsp)
+{
+    cudaMemcpy(paramsp->inout_rgb, d_inout, sizeof(float4)*paramsp->width*paramsp->height, cudaMemcpyDeviceToHost);
+}
 
 void Host_Render(RenderParameters* paramsp)
 {
@@ -254,7 +258,7 @@ void Host_Kill()
     cudaArray* data_array = 0, *texture_array = 0, *color_array = 0;
     unsigned int last_width, last_height;
     unsigned int* d_out = 0;
-    float4* d_inout = 0;
+//    float4* d_inout = 0;
     float* d_rand_x = 0;
     cudaFree(d_inout);
     cudaFree(dparams);

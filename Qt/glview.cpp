@@ -87,15 +87,15 @@ GLView::GLView(QWidget *parent)
 #if USE_IMAGE_CUTOFF
     filter = new SchlierenImageCutoff(cutoffData);
 #else
-    filter = new SchlierenPositiveHorizontalKnifeEdgeCutoff();
-    //filter = new SchlierenBOSCutoff();
+//    filter = new SchlierenPositiveHorizontalKnifeEdgeCutoff();
+    filter = new SchlierenBOSCutoff();
 #endif
     schlieren->setFilter(filter);
     schlieren->setImageFilter(new ImageFilter());
     schlieren->setStepSize(0.02);
    // loadData("/home/carson/data/coal.nrrd");
-    schlieren->setRaysPerPixel(3);
-    schlieren->setRenderSize(700,700);
+    schlieren->setRaysPerPixel(1);
+    schlieren->setRenderSize(300,300);
     schlieren->setNumRenderPasses(1);
 
     makeCurrent();
@@ -344,14 +344,31 @@ void write_file(std::string fn, unsigned int *out_rgb, int width, int height) {
     fclose(f);
 }
 
+void writeFile16bitGrayscale(std::string fn, char *out_g16, int width, int height) {
+//    bmp::bmpheader bmph;
+//    bmph.set_size(width, height);
+
+    char* g16 = (char*)out_g16;
+//    bmp::rgba_to_bgra(rgba, width, height);
+
+    FILE *f = fopen(fn.c_str(), "w");
+//    fwrite((void*)&bmph, sizeof(bmph), 1, f);
+    size_t size = width * height * 2;
+    fwrite((void*)g16, size, 1, f);
+    fclose(f);
+}
+
 
 void GLView::mouseDoubleClickEvent(QMouseEvent *)
 {
     RenderParameters &p = schlieren->_params;
 
     // set resolution
-
+    unsigned short out_buffer[p.width*p.height];
+std::cerr << "sizeof short: " << sizeof(unsigned short) << std::endl;
     for(int i=0; i<72; i++) {
+        std::cerr << "saving out frame " << i+1 << "/72\n";
+//        continue;
         schlieren->setCameraIndex(i);
 
         float dataScalar = p.dataScalar;
@@ -364,10 +381,40 @@ void GLView::mouseDoubleClickEvent(QMouseEvent *)
             for(pass=0; pass<10; pass++) {
                 schlieren->render();
             }
-
+            schlieren->copyInoutBuffer();
+            float max_spp_inv = 1.0f/(p.passes+p.raysPerPixel*p.numRenderPasses);//(*max_spp_real); // increase brightness
+            float maxval = 0.0f;
+            for(size_t index=0;index<p.width*p.height;index++)
+            {
+                float4& color = p.inout_rgb[index];
+                float val = color.x*max_spp_inv;
+                static int counter =0;
+//                if ((counter%100)==0)
+//                    std::cerr << val << " ";
+                if (val > 1.0f)
+                    val = 1.0f;
+                if (val < 0.0f)
+                    val = 0.0f;
+                if (val > maxval)
+                    maxval = val;
+                out_buffer[index] = (unsigned short)(val*65535.0f);
+//                if ((counter++%100)==0)
+//                    std::cerr << out_buffer[index] << std::endl;
+            }
+            std::cerr << "maxval found: " << maxval << std::endl;
             stringstream ss;
-            ss << i << "_base.bmp";
-            write_file(ss.str(), p.out_rgb, p.width, p.height);
+//            ss << i << "_base.bmp";
+
+//            ss << i << "_base16_" << p.width << "x" << p.height << ".bmp";
+//            write_file(ss.str(), p.out_rgb, p.width, p.height);
+            ss << i << "_base16_" << p.width << "x" << p.height << ".raw";
+            writeFile16bitGrayscale(ss.str(), (char*)out_buffer, p.width, p.height);
+            ss.str("");
+            ss << "convert -size " << p.width << "x" << p.height << " -depth 16 -set colorspace Gray r:"
+            << i << "_base16_" << p.width << "x" << p.height << ".raw"
+               << " -set colorspace Gray " << i << "_base16_" << p.width << "x" << p.height << ".png";
+            std::cerr << "\"" << ss.str() << "\"\n";
+            system(ss.str().c_str());
         }
 
         // render with data
@@ -381,8 +428,16 @@ void GLView::mouseDoubleClickEvent(QMouseEvent *)
             }
 
             stringstream ss;
-            ss << i << "_data.bmp";
-            write_file(ss.str(), p.out_rgb, p.width, p.height);
+//            ss << i << "_data.bmp";
+//            write_file(ss.str(), p.out_rgb, p.width, p.height);
+            ss << i << "_data16_" << p.width << "x" << p.height << ".raw";
+            writeFile16bitGrayscale(ss.str(), (char*)out_buffer, p.width, p.height);
+            ss.str("");
+            ss << "convert -size " << p.width << "x" << p.height << " -depth 16 -set colorspace Gray r:"
+            << i << "_data16_" << p.width << "x" << p.height << ".raw"
+               << " -set colorspace Gray " << i << "_data16_" << p.width << "x" << p.height << ".png";
+            std::cerr << "\"" << ss.str() << "\"\n";
+            system(ss.str().c_str());
         }
     }
 }

@@ -41,6 +41,7 @@
 #include <cmath>
 
 extern "C" void Host_Render( RenderParameters* paramsp);
+extern "C" void Host_CopyInoutBuffer( RenderParameters* paramsp);
 extern "C" void Host_Init(RenderParameters* paramsp);
 extern "C" void Host_Clear(RenderParameters* paramsp);
 extern "C" void Host_Kill();
@@ -317,7 +318,6 @@ void SchlierenRenderer::render()
   //    cudaGLMapBufferObject( (void**)&_params.out_data, pbo_out);
 
   Host_Render(&_params);
-
   //    cudaGLUnmapBufferObject( pbo_out);
   //
   //    // download texture from destination PBO
@@ -332,6 +332,11 @@ void SchlierenRenderer::render()
   //
   //    glBindFramebufferEXT(GL_FRAMEBUFFER_EXT, 0);
   //    displayImage();
+}
+
+void SchlierenRenderer::copyInoutBuffer()
+{
+    Host_CopyInoutBuffer(&_params);
 }
 
 void SchlierenRenderer::rotate(float x, float y)
