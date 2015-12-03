@@ -11,6 +11,8 @@
 #include <string>
 #include <sstream>
 #include "bmputil.h"
+
+#include "helper_math.h"
 using namespace std;
 
 
@@ -362,11 +364,14 @@ void writeFile16bitGrayscale(std::string fn, char *out_g16, int width, int heigh
 void GLView::mouseDoubleClickEvent(QMouseEvent *)
 {
     RenderParameters &p = schlieren->_params;
-
+    int owidth = p.width;
+    int oheight = p.height;
+    p.width = 3840;
+    p.height = 2160;
     // set resolution
     unsigned short out_buffer[p.width*p.height];
 std::cerr << "sizeof short: " << sizeof(unsigned short) << std::endl;
-    for(int i=0; i<72; i++) {
+    for(int i=0; i<5; i++) {
         std::cerr << "saving out frame " << i+1 << "/72\n";
 //        continue;
         schlieren->setCameraIndex(i);
@@ -383,25 +388,18 @@ std::cerr << "sizeof short: " << sizeof(unsigned short) << std::endl;
             }
             schlieren->copyInoutBuffer();
             float max_spp_inv = 1.0f/(p.passes+p.raysPerPixel*p.numRenderPasses);//(*max_spp_real); // increase brightness
-            float maxval = 0.0f;
             for(size_t index=0;index<p.width*p.height;index++)
             {
                 float4& color = p.inout_rgb[index];
                 float val = color.x*max_spp_inv;
                 static int counter =0;
-//                if ((counter%100)==0)
-//                    std::cerr << val << " ";
                 if (val > 1.0f)
                     val = 1.0f;
                 if (val < 0.0f)
                     val = 0.0f;
-                if (val > maxval)
-                    maxval = val;
                 out_buffer[index] = (unsigned short)(val*65535.0f);
-//                if ((counter++%100)==0)
-//                    std::cerr << out_buffer[index] << std::endl;
+                color = make_float4(0); //inoutbuffer sets initial values for some reason so reset to 0
             }
-            std::cerr << "maxval found: " << maxval << std::endl;
             stringstream ss;
 //            ss << i << "_base.bmp";
 
@@ -426,6 +424,20 @@ std::cerr << "sizeof short: " << sizeof(unsigned short) << std::endl;
             for(pass=0; pass<10; pass++) {
                 schlieren->render();
             }
+            schlieren->copyInoutBuffer();
+            float max_spp_inv = 1.0f/(p.passes+p.raysPerPixel*p.numRenderPasses);//(*max_spp_real); // increase brightness
+            for(size_t index=0;index<p.width*p.height;index++)
+            {
+                float4& color = p.inout_rgb[index];
+                float val = color.x*max_spp_inv;
+                static int counter =0;
+                if (val > 1.0f)
+                    val = 1.0f;
+                if (val < 0.0f)
+                    val = 0.0f;
+                out_buffer[index] = (unsigned short)(val*65535.0f);
+                color = make_float4(0); //inoutbuffer sets initial values for some reason so reset to 0
+            }
 
             stringstream ss;
 //            ss << i << "_data.bmp";
@@ -440,6 +452,8 @@ std::cerr << "sizeof short: " << sizeof(unsigned short) << std::endl;
             system(ss.str().c_str());
         }
     }
+    p.width = owidth;
+    p.height = oheight;
 }
 
 void GLView::saveGLState()
