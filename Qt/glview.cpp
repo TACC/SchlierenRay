@@ -371,7 +371,7 @@ void GLView::mouseDoubleClickEvent(QMouseEvent *)
     // set resolution
     unsigned short out_buffer[p.width*p.height];
 std::cerr << "sizeof short: " << sizeof(unsigned short) << std::endl;
-    for(int i=0; i<5; i++) {
+    for(int i=0; i<72; i++) {
         std::cerr << "saving out frame " << i+1 << "/72\n";
 //        continue;
         schlieren->setCameraIndex(i);
