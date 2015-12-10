@@ -360,6 +360,18 @@ void writeFile16bitGrayscale(std::string fn, char *out_g16, int width, int heigh
     fclose(f);
 }
 
+void writeFile32bitGrayscaleFloat(std::string fn, float *out_g32f, int width, int height) {
+//    bmp::bmpheader bmph;
+//    bmph.set_size(width, height);
+//    bmp::rgba_to_bgra(rgba, width, height);
+
+    FILE *f = fopen(fn.c_str(), "w");
+//    fwrite((void*)&bmph, sizeof(bmph), 1, f);
+    size_t size = width * height * sizeof(float);
+    fwrite((void*)out_g32f, size, 1, f);
+    fclose(f);
+}
+
 
 void GLView::mouseDoubleClickEvent(QMouseEvent *)
 {
@@ -370,6 +382,7 @@ void GLView::mouseDoubleClickEvent(QMouseEvent *)
     p.height = 2160;
     // set resolution
     unsigned short out_buffer[p.width*p.height];
+    float out_bufferf[p.width*p.height];
 std::cerr << "sizeof short: " << sizeof(unsigned short) << std::endl;
     for(int i=0; i<72; i++) {
         std::cerr << "saving out frame " << i+1 << "/72\n";
@@ -398,6 +411,7 @@ std::cerr << "sizeof short: " << sizeof(unsigned short) << std::endl;
                 if (val < 0.0f)
                     val = 0.0f;
                 out_buffer[index] = (unsigned short)(val*65535.0f);
+                out_bufferf[index]=val;
                 color = make_float4(0); //inoutbuffer sets initial values for some reason so reset to 0
             }
             stringstream ss;
@@ -407,6 +421,9 @@ std::cerr << "sizeof short: " << sizeof(unsigned short) << std::endl;
 //            write_file(ss.str(), p.out_rgb, p.width, p.height);
             ss << i << "_base16_" << p.width << "x" << p.height << ".raw";
             writeFile16bitGrayscale(ss.str(), (char*)out_buffer, p.width, p.height);
+            ss.str("");
+            ss << i << "_base32f_" << p.width << "x" << p.height << ".raw";
+            writeFile32bitGrayscaleFloat(ss.str(), out_bufferf, p.width, p.height);
             ss.str("");
             ss << "convert -size " << p.width << "x" << p.height << " -depth 16 -set colorspace Gray r:"
             << i << "_base16_" << p.width << "x" << p.height << ".raw"
@@ -436,6 +453,7 @@ std::cerr << "sizeof short: " << sizeof(unsigned short) << std::endl;
                 if (val < 0.0f)
                     val = 0.0f;
                 out_buffer[index] = (unsigned short)(val*65535.0f);
+                out_bufferf[index]=val;
                 color = make_float4(0); //inoutbuffer sets initial values for some reason so reset to 0
             }
 
@@ -444,6 +462,9 @@ std::cerr << "sizeof short: " << sizeof(unsigned short) << std::endl;
 //            write_file(ss.str(), p.out_rgb, p.width, p.height);
             ss << i << "_data16_" << p.width << "x" << p.height << ".raw";
             writeFile16bitGrayscale(ss.str(), (char*)out_buffer, p.width, p.height);
+            ss.str("");
+            ss << i << "_base32f_" << p.width << "x" << p.height << ".raw";
+            writeFile32bitGrayscaleFloat(ss.str(), out_bufferf, p.width, p.height);
             ss.str("");
             ss << "convert -size " << p.width << "x" << p.height << " -depth 16 -set colorspace Gray r:"
             << i << "_data16_" << p.width << "x" << p.height << ".raw"
